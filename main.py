@@ -7,14 +7,14 @@ screen.bgcolor("black")
 screen.title("PONG")
 screen.tracer(0)
 
-paddle1 = Paddle((350, 0))
-paddle2 = Paddle((-350, 0))
+right_paddle = Paddle((350, 0))
+left_paddle = Paddle((-350, 0))
 
-screen.onkeypress(fun=paddle1.move_up, key="Up")
-screen.onkeypress(fun=paddle1.move_down, key="Down")
+screen.onkeypress(fun=right_paddle.move_up, key="Up")
+screen.onkeypress(fun=right_paddle.move_down, key="Down")
 
-screen.onkeypress(fun=paddle2.move_up, key="w")
-screen.onkeypress(fun=paddle2.move_down, key="s")
+screen.onkeypress(fun=left_paddle.move_up, key="w")
+screen.onkeypress(fun=left_paddle.move_down, key="s")
 
 screen.listen()
 
