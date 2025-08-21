@@ -10,7 +10,7 @@ class Ball(Turtle):
         self.goto(0, 0)
 
     def move_ball(self):
-        newx = self.xcor() + 1
-        newy = self.ycor() + 1
+        newx = self.xcor() + 10
+        newy = self.ycor() + 10
         self.goto(newx, newy)
 
