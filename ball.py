@@ -1,16 +1,16 @@
 from turtle import Turtle
 
 class Ball(Turtle):
+
     def __init__(self):
         super().__init__()
         self.penup()
         self.shape("circle")
         self.color("white")
-        self.position = (0, 0)
-        self.goto(self.position)
+        self.goto(0, 0)
 
     def move_ball(self):
-        newx = self.position[0] + 1
-        newy = self.position[1] + 1
-        self.position = (newx, newy)
-        self.goto(self.position)
+        newx = self.xcor() + 1
+        newy = self.ycor() + 1
+        self.goto(newx, newy)
+
