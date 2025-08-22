@@ -13,11 +13,10 @@ class Ball(Turtle):
         self.direction = [1, 1]
 
     # noinspection SpellCheckingInspection
-    def move_ball(self):
-        if self.ycor() > 270 or self.ycor() < -270:
-            self.direction[1] *= -1
+    def move(self):
         newxcor = self.xcor() + (BALL_SPEED * self.direction[0])
         newycor = self.ycor() + (BALL_SPEED * self.direction[1])
         self.goto(newxcor, newycor)
 
-
+    def bounce(self):
+        self.direction[1] *= -1
