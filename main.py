@@ -9,8 +9,8 @@ screen.bgcolor("black")
 screen.title("PONG")
 screen.tracer(0)
 
-right_paddle = Paddle((350, 0))
-left_paddle = Paddle((-350, 0))
+right_paddle = Paddle((370, 0))
+left_paddle = Paddle((-370, 0))
 ball = Ball()
 
 screen.onkeypress(fun=right_paddle.move_up, key="Up")
@@ -27,6 +27,12 @@ while game_is_on:
 
     #Detect collision with the wall
     if ball.ycor() > 280 or ball.ycor() < -280:
-        ball.bounce()
+        ball.bounce_y()
+
+    #Detect collision with paddles
+    if ball.distance(right_paddle.position()) < 50 and ball.xcor() > 340:
+        ball.bounce_x()
+    if ball.distance(left_paddle.position()) < 50 and ball.xcor() < -340:
+        ball.bounce_x()
 
 screen.exitonclick()
