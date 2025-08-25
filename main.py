@@ -34,5 +34,8 @@ while game_is_on:
         ball.bounce_x()
     if ball.distance(left_paddle.position()) < 50 and ball.xcor() < -340:
         ball.bounce_x()
+    #Detect collision with scoring zone
+    if ball.xcor() > 380 or ball.xcor() < -380:
+        ball.restart()
 
 screen.exitonclick()

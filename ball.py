@@ -23,3 +23,7 @@ class Ball(Turtle):
 
     def bounce_y(self):
         self.direction[1] *= -1
+
+    def restart(self):
+        self.goto(0, 0)
+        self.bounce_x()
