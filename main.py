@@ -1,6 +1,7 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 screen = Screen()
@@ -12,6 +13,7 @@ screen.tracer(0)
 right_paddle = Paddle((370, 0))
 left_paddle = Paddle((-370, 0))
 ball = Ball()
+scoreboard = Scoreboard()
 
 screen.onkeypress(fun=right_paddle.move_up, key="Up")
 screen.onkeypress(fun=right_paddle.move_down, key="Down")
@@ -35,7 +37,11 @@ while game_is_on:
     if ball.distance(left_paddle.position()) < 50 and ball.xcor() < -340:
         ball.bounce_x()
     #Detect collision with scoring zone
-    if ball.xcor() > 380 or ball.xcor() < -380:
+    if ball.xcor() > 380:
+        scoreboard.l_point()
+        ball.restart()
+    if ball.xcor() < -380:
+        scoreboard.r_point()
         ball.restart()
 
 screen.exitonclick()
